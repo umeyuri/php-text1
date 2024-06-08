@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケート送信テスト</title>
+</head>
+<body>
+    <h1>アンケートフォーム</h1>
+    <form action="post.php" method="POST">
+        <div>お名前:<input type="text" name="name"></div>
+        <div>性別：
+            <input type="radio" value="man" name="gender">男性
+            <input type="radio" value="woman" name="gender">女性
+        </div>
+        <div>
+            評価：
+            <select name="star">
+                <option value="1">★☆☆☆☆</option>
+                <option value="2">★★☆☆☆</option>
+                <option value="3">★★★☆☆</option>
+                <option value="4">★★★★☆</option>
+                <option value="5">★★★★★</option>
+            </select>
+        </div>
+        <div>ご意見
+            <textarea name="other"></textarea>
+        </div>
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>
