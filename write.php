@@ -6,8 +6,14 @@ $title = $_POST['title'];
 $body = $_POST['body'];
 $pass = $_POST['pass'];
 
+$token = $_POST['token']; //csrf対策
+if ($token != hash("sha256", session_id())) {
+    header('Location:bbs.php');
+    exit();
+}
+
 //　必須項目が空の場合
-if ($name == '' || $body = '') {
+if ($name == '' || $body == '') {
     header("Location: bbs.php"); //一覧へ移動する
     exit();
 }

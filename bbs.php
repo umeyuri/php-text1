@@ -67,13 +67,14 @@ try {
                     <input type="text" name="pass" class="form-control"> 
                 </div>
                 <input type="submit" class="btn btn-primary" value="書き込む">
+                <input type="hidden" name="token" value="<?php echo hash("sha256", session_id())?>">
             </form>
             <hr>
             <?php while ($row = $stmt->fetch()): ?>
                 <div class="card">
                     <div class="card-header"><?php echo $row['title'] ? $row['title']: '無題'; ?></div>
                     <div class="card-body">
-                        <p class="card-text"><?php echo nl2br($row['body']) ?></p>
+                        <p class="card-text"><?php echo nl2br(htmlspecialchars($row['body'], ENT_QUOTES, 'UTF-8')) ?></p>
                     </div>
                     <div class="card-footer">
                         <form action="delete.php" method="post" class="form-inline">
@@ -82,6 +83,7 @@ try {
                         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                         <input type="text" name="pass" placeholder="削除パスワード" class="form-control">
                         <input type="submit" value="削除" class="btn btn-secondary">
+                        <input type="hidden" name="token" value="<?php echo hash("sha256", session_id())?>">
                         </form>
                     </div>
                 </div>

@@ -18,8 +18,10 @@ if (isset($_SESSION['id'])) {
         $stmt->execute();
 
         if ($row = $stmt->fetch()) {
-            // DBにユーザーが存在していたらセッションに代入する
-            $_SESSION['id'] = $row['id'];
+            // DBにユーザーが存在していたら
+            session_regenerate_id(true);//セッションidを再生成
+            $_SESSION['id'] = $row['id'];//セッションに保存
+
             header('Location: index.php');
             exit();
         } else {
