@@ -1,4 +1,6 @@
 <?php
+    include './includes/login.php';
+
     $fp = fopen('./info.txt', 'r'); //ファイルポインタが返り値
     if ($fp) {
         $line = fgets($fp);

@@ -1,4 +1,5 @@
 <?php
+include './includes/login.php';
 $images = array();
 $num = 4;
 

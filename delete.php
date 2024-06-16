@@ -1,4 +1,5 @@
 <?php
+include './includes/login.php';
 $id = intval($_POST['id']);
 $pass = intval($_POST['pass']);
 

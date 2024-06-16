@@ -1,4 +1,5 @@
 <?php
+include './includes/login.php';
 // データを受け取る
 $name = $_POST['name'];
 $title = $_POST['title'];
@@ -16,6 +17,9 @@ if (!preg_match("/^[0-9]{4}$/", $pass)) {
     header("Location:bbs.php");
     exit();
 }
+
+// クッキーを発行して保存させる
+setcookie('name', $name, time() + 60*60*24*30);
 
 //　DB接続
 $dsn = 'mysql:host=localhost;dbname=tennis;charset=utf8';//data source name

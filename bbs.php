@@ -1,4 +1,12 @@
 <?php
+include './includes/login.php';
+//クッキーを読み込んで名前を設定
+if (isset($_COOKIE['name'])) {
+    $name = $_COOKIE['name'];
+} else {
+    $name = '';
+}
+
 $num = 10;
 
 //　DB接続
@@ -48,7 +56,7 @@ try {
                 </div>
                 <div class="form-group">
                     <label>名前</label>
-                    <input type="text" name="name" class="form-control"> 
+                    <input type="text" name="name" class="form-control" value="<?php echo $name; ?>"> 
                 </div>
                 <div class="form-group">
                 <label>テキスト</label>
